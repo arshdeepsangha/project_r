@@ -31,6 +31,11 @@ gem 'activeadmin'
 
 gem 'devise'
 
+gem 'bootstrap', '~> 4.0.0'
+
+gem 'sprockets-rails'
+
+gem 'jquery-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
