@@ -4,12 +4,90 @@
     <title>ProjectRoomies</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class ="bg-img">
+        <div class="container">
+          <div class="topnav">
+            <% @pages = Page.all%>
+            <% @pages.each do |page| %>
+              <a class="nav-link" href="/<%= page.permalink %>"><%= page.title %> <span class="sr-only">(current)</span></a>
+            <% end %>
+          </div>
+        </div>
+        <div class="box">
+          <div class="title">
+          <h1>Find unique places to stay.</h1>
+          </div>
+          <div class="form">
+            <div class="form-group">
+              <label class="col-form-label" for="inputDefault">Where</label>
+              <input type="text" class="form-control" placeholder="Search address or postal code">
+            </div>
+            <div class="form-group">
+              <label class="col-form-label" for="inputDefault">Rent</label>
+              <input type="number" class="form-control" min="100.00" step="50.00" placeholder="Amount">
+            </div>
+            <div class="form-group">
+              <label for="houseType" class="col-form-label">Residence type</label>
+              <select class="form-control">
+                <option>Any</option>
+                <option>Apartment</option>
+                <option>Single family(detached)</option>
+                <option>Condominioum</option>
+                <option>Townhome</option>
+                <option>Bungalow</option>
+              </select>
+            </div>
+            <div class="form-group">
+             <fieldset class="form-group">
+              <label for="customRange1">Distance Range</label>
+              <input type="range" class="custom-range" min="1" max="10" id="customRange1">
+              </fieldset>
+            </div>
+            <div class="form-submit">
+              <button type="submit" id="uniquesearch">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="middle">
+      <h1 class ="explore">Explore Roomies</h1>
+      <div class="row">
+        <div class="column">
+          <img src="https://inspiringtips.com/wp-content/uploads/2017/10/make-her-feel-secure.jpg" alt="Mountains" height= "175px" style="width:250px">
+          <span class= "card-title">Personal space</span>
+        </div>
+        <div class="column">
+          <img src="https://images.squarespace-cdn.com/content/v1/5315d48ee4b0f79bb3f52a1a/1528189148908-CV9NPSLOSZ4OLAU7TYWM/ke17ZwdGBToddI8pDm48kA_SSaoz4elkj-HsZd8gX3Z7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UWPwZyNcweDIvdeL5kotwkIXjs9g0WibSO_cU-Ijy4Pwg6poS-6WGGnXqDacZer4yQ/Childrens-Photographer-in-Perth-at-Sunset.jpg?format=2500w" alt="Mountains" height= "175px" style="width:250px">
+          <span class= "card-title">Togetherness</span>
+        </div>
+        <div class="column">
+          <img src="https://www.airductcleaningarizona.com/wp-content/uploads/2017/04/happy-family.jpg" alt="Mountains" height= "175px" style="width:250px">
+          <span class= "card-title">Peace of mind</span>
+        </div>
+      </div>
+    </div>
+    <div class="low">
+      <div class="jumbotron">
+        <h1 class="display-3">Welcome to Roomies!</h1>
+        <p class="lead">We are just getting started. New in Winnipeg? No place to crash? We got you covered!</p>
+        <hr class="my-4">
+        <p>Meet the CEOs Anish Sharma and Arshdeep Sangha.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button" id="learn">Learn more</a>
+        </p>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>

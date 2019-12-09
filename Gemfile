@@ -31,7 +31,7 @@ gem 'activeadmin'
 
 gem 'devise'
 
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.1.3'
 
 gem 'sprockets-rails'
 
